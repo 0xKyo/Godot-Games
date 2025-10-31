@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b30qs1o2lsorw"]
+
+[ext_resource type="Script" uid="uid://dd80xxq2indgc" path="res://Scenes/Game/game.gd" id="1_i1e5p"]
+[ext_resource type="Texture2D" uid="uid://ccwrlyauj7l5q" path="res://assets/GameBg.png" id="1_qxfds"]
+[ext_resource type="PackedScene" uid="uid://13b638byorin" path="res://Scenes/Paddle/paddle.tscn" id="2_qikps"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i1e5p")
+
+[node name="GameBg" type="Sprite2D" parent="."]
+scale = Vector2(0.59999996, 0.59999996)
+texture = ExtResource("1_qxfds")
+centered = false
+
+[node name="Paddle" parent="." instance=ExtResource("2_qikps")]
+position = Vector2(62, 627)
+scale = Vector2(0.59999996, 0.59999996)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

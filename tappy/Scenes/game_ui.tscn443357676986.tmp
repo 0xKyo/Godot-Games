@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcq66g7lc6gxu"]
+
+[ext_resource type="Script" uid="uid://dc5dtxbqr0mno" path="res://Scenes/game_ui.gd" id="1_bw2rt"]
+[ext_resource type="FontFile" uid="uid://be5gfjadt0liw" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_ukjuv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdwdm"]
+font = ExtResource("1_ukjuv")
+font_size = 36
+font_color = Color(0.8901961, 0.14117648, 0.4, 1)
+outline_color = Color(0.8901961, 0.14117648, 0.4, 1)
+shadow_color = Color(0.25882354, 0.015686275, 0.09411765, 0.72156864)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukjuv"]
+font = ExtResource("1_ukjuv")
+font_size = 36
+outline_color = Color(0.8901961, 0.14117648, 0.4, 1)
+shadow_color = Color(0.25882354, 0.015686275, 0.09411765, 0.72156864)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgm1p"]
+font = ExtResource("1_ukjuv")
+font_size = 36
+font_color = Color(0.8901961, 0.14117648, 0.4, 1)
+outline_color = Color(0.8901961, 0.14117648, 0.4, 1)
+shadow_color = Color(0.25882354, 0.015686275, 0.09411765, 0.72156864)
+
+[node name="GameUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bw2rt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_fdwdm")
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space"
+label_settings = SubResource("LabelSettings_ukjuv")
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_wgm1p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

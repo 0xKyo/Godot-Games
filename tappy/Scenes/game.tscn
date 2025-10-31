@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://rqa6xe2fs2sb"]
+
+[ext_resource type="Script" uid="uid://bld4wnuugtcp5" path="res://Scenes/game.gd" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bly830iio86bs" path="res://Scenes/plane.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://blbdjb5ev31h8" path="res://Scenes/parallax_bg.tscn" id="2_wowpa"]
+[ext_resource type="PackedScene" uid="uid://d1w372wiuprc4" path="res://Scenes/barrier.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bcq66g7lc6gxu" path="res://Scenes/game_ui.tscn" id="5_wowpa"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3dryh")
+
+[node name="ParallaxBg" parent="." instance=ExtResource("2_wowpa")]
+scale = Vector2(0.79, 0.79)
+
+[node name="Plane" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(201, 159)
+
+[node name="Barrier" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(4, -5)
+
+[node name="PipesHolder" type="Node" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="UpperPoint" type="Marker2D" parent="."]
+position = Vector2(553, 192)
+
+[node name="LowerPoint" type="Marker2D" parent="."]
+position = Vector2(553, 642)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="UILayer" instance=ExtResource("5_wowpa")]
