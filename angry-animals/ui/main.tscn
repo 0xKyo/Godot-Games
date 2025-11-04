@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://dir4n0opm4iyp"]
+
+[ext_resource type="Texture2D" uid="uid://j66g16jd4lms" path="res://assets/env/MainBG.png" id="1_fblgx"]
+[ext_resource type="PackedScene" uid="uid://dqcffugynm66x" path="res://ui/level_button.tscn" id="2_t6oic"]
+[ext_resource type="FontFile" uid="uid://dj5t0nw8h248n" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_h17sc"]
+[ext_resource type="AudioStream" uid="uid://bqtciqf2g4d7w" path="res://assets/audio/birdsong.wav" id="4_fc3ap"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_06s8x"]
+font = ExtResource("3_h17sc")
+font_size = 64
+font_color = Color(0.28333637, 0.06982227, 0.5434841, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fblgx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -50.0
+offset_right = 154.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="LevelButton" parent="HBoxContainer" instance=ExtResource("2_t6oic")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HBoxContainer" instance=ExtResource("2_t6oic")]
+layout_mode = 2
+level_number = "2"
+
+[node name="LevelButton3" parent="HBoxContainer" instance=ExtResource("2_t6oic")]
+layout_mode = 2
+level_number = "3"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 125.0
+offset_right = 812.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 16
+text = "Angry Animals"
+label_settings = SubResource("LabelSettings_06s8x")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fc3ap")
+volume_db = -10.0
+autoplay = true
