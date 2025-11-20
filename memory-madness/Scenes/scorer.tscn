@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1k2y6ufb3c36"]
+
+[ext_resource type="Script" uid="uid://da34balihmlls" path="res://Scenes/scorer.gd" id="1_ovddw"]
+
+[node name="Scorer" type="Node"]
+script = ExtResource("1_ovddw")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
