@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqwkth4x44sl7"]
+
+[ext_resource type="LabelSettings" uid="uid://queeyriwvi28" path="res://Resources/label.tres" id="1_nbykh"]
+
+[node name="HighScoreDisplay" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+text = "00000"
+label_settings = ExtResource("1_nbykh")
+horizontal_alignment = 1
+
+[node name="DateLabel" type="Label" parent="."]
+layout_mode = 2
+text = "00-00-00"
+label_settings = ExtResource("1_nbykh")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d4nviplosacsp"]
+
+[ext_resource type="Script" uid="uid://b8tb6sdblr2nm" path="res://Scripts/player.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bgewfg0wtcpvd" path="res://Scenes/character.tscn" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://scripts/spring_arm.gd" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dttq2p2brxvjs" path="res://Scenes/dungeon.tscn" id="4_wowpa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wrm1d"]
+
+[node name="Game" type="Node3D" unique_id=376862384]
+
+[node name="Player" type="Node" parent="." unique_id=1240131967 node_paths=PackedStringArray("_character", "_spring_arm")]
+script = ExtResource("1_wrm1d")
+_character = NodePath("../Barbarian")
+_spring_arm = NodePath("../Barbarian/SpringArm")
+
+[node name="Barbarian" parent="." unique_id=1764155687 instance=ExtResource("2_3dryh")]
+
+[node name="SpringArm" type="SpringArm3D" parent="Barbarian" unique_id=348415498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_wrm1d")
+spring_length = 3.0
+script = ExtResource("4_3dryh")
+
+[node name="Camera" type="Camera3D" parent="Barbarian/SpringArm" unique_id=647304567]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+h_offset = 0.5
+
+[node name="Dungeon" parent="." unique_id=269454798 instance=ExtResource("4_wowpa")]

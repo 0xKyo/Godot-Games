@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cui74p0gtiag8" path="res://Scenes/enemy_base.tscn" id="1_0dq4m"]
 [ext_resource type="Script" uid="uid://3qyuonfykhrx" path="res://Scenes/eagle.gd" id="2_amo35"]
 [ext_resource type="Texture2D" uid="uid://v0e16l0650lo" path="res://assets/enemies/eagle/eagle-attack.png" id="2_fugfm"]
-[ext_resource type="PackedScene" uid="uid://srbo7ewapdjq" path="res://Scenes/shooter.tscn" id="4_26r13"]
+[ext_resource type="PackedScene" uid="uid://srbo7ewapdjq" path="res://assets/shooter.tscn" id="4_26r13"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fugfm"]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://nwhbjgor2f6c" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bb4626t13ar4d" path="res://assets/player/player.png" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://xlesl27sxfwk" path="res://Scenes/player_camera_2d.tscn" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://srbo7ewapdjq" path="res://Scenes/shooter.tscn" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://srbo7ewapdjq" path="res://assets/shooter.tscn" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://c0esc5pejr7pa" path="res://assets/sound/jump.wav" id="5_fkybt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
@@ -188,7 +188,7 @@ advance_expression = "_is_hurt"
 states/Air/node = SubResource("AnimationNodeStateMachine_tx1dd")
 states/Air/position = Vector2(545.24506, 100)
 states/Grounded/node = SubResource("AnimationNodeStateMachine_f1ek2")
-states/Grounded/position = Vector2(377.24506, 100)
+states/Grounded/position = Vector2(316.24506, 109)
 states/Start/position = Vector2(74, 94)
 states/hurt/node = SubResource("AnimationNodeAnimation_3smsa")
 states/hurt/position = Vector2(454.24506, 226)
@@ -205,7 +205,7 @@ script = ExtResource("1_cvnsp")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_v0iea")
 hframes = 19
-frame = 17
+frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

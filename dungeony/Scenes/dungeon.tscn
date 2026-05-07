@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dttq2p2brxvjs"]
+
+[ext_resource type="MeshLibrary" uid="uid://8gv7aqpfg7cg" path="res://Scenes/dungeon_mesh_library.meshlib" id="1_oavya"]
+
+[sub_resource type="Environment" id="Environment_oavya"]
+ambient_light_color = Color(0.620745, 0.5943552, 0.53641397, 1)
+ambient_light_energy = 9.57
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dakn4"]
+
+[sub_resource type="Compositor" id="Compositor_lt7kh"]
+
+[node name="Dungeon" type="Node3D" unique_id=269454798]
+
+[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=2037633581]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 7.7408886, -0.17373586)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="." unique_id=750746175]
+mesh_library = ExtResource("1_oavya")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(1, 2, 103, 65533, 2, 103, 65533, 6, 103, 1, 6, 104, 5, 2, 103, 5, 6, 103, 5, 10, 103, 1, 10, 103, 65533, 10, 103, 9, 2, 103, 13, 2, 103, 17, 2, 103, 17, 6, 103, 13, 6, 103, 13, 10, 103, 17, 10, 103, 21, 10, 103, 21, 6, 655463, 21, 2, 103, 5, 65534, 103, 1, 65534, 103, 65533, 65534, 103, 65529, 2, 103, 1, 12, 179, 5, 12, 179, 65531, 10, 1048755, 13, 12, 179, 21, 12, 179, 23, 10, 1441971, 23, 2, 1441971, 21, 0, 179, 13, 0, 179, 7, 65534, 1441971, 5, 65532, 655539, 1, 65532, 655539, 65533, 65532, 655539, 17, 0, 655549, 17, 12, 189, 23, 6, 1441981, 65533, 12, 655549, 6, 6, 1048686, 65529, 65534, 1048680, 65529, 6, 1048679, 65525, 6, 1048679, 65521, 6, 1048679, 65525, 2, 1048679, 65521, 2, 1048679, 65525, 65534, 1048679, 65521, 65534, 1048679, 9, 6, 1048679, 9, 10, 1048679, 7, 4, 1441983, 65531, 1, 1441983, 65531, 65534, 1441971, 65531, 4, 1441971, 65529, 65532, 655539, 65525, 65532, 655539, 65521, 65532, 655539, 65519, 65534, 1048755, 65519, 2, 1048755, 65519, 6, 1048755, 65527, 8, 179, 65523, 8, 179, 65519, 8, 655545, 65519, 65532, 1048761, 7, 8, 1048760, 7, 12, 655546, 11, 12, 655549, 11, 0, 655549, 11, 9, 655449, 14, 10, 655449, 11, 11, 655449, 65534, 9, 655449, 0, 10, 655449, 7, 0, 1048781, 65531, 8, 1441997, 21, 5, 655518, 65521, 1, 655518, 4, 8, 655518)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2086174258]
+environment = SubResource("Environment_oavya")
+camera_attributes = SubResource("CameraAttributesPractical_dakn4")
+compositor = SubResource("Compositor_lt7kh")
