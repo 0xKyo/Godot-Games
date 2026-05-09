@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://d4nviplosacsp"]
 
+[ext_resource type="Script" uid="uid://cggsf2028bo04" path="res://Scripts/game_manager.gd" id="1_wowpa"]
 [ext_resource type="Script" uid="uid://b8tb6sdblr2nm" path="res://Scripts/player.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bgewfg0wtcpvd" path="res://Scenes/character.tscn" id="2_3dryh"]
-[ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://scripts/spring_arm.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://Scripts/spring_arm.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dttq2p2brxvjs" path="res://Scenes/dungeon.tscn" id="4_wowpa"]
+[ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="6_1l0tm"]
+[ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/menu.gd" id="6_i6g32"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrm1d"]
 
 [node name="Game" type="Node3D" unique_id=376862384]
+script = ExtResource("1_wowpa")
 
 [node name="Player" type="Node" parent="." unique_id=1240131967 node_paths=PackedStringArray("_character", "_spring_arm")]
+process_mode = 3
 script = ExtResource("1_wrm1d")
 _character = NodePath("../Barbarian")
 _spring_arm = NodePath("../Barbarian/SpringArm")
@@ -27,3 +32,40 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 h_offset = 0.5
 
 [node name="Dungeon" parent="." unique_id=269454798 instance=ExtResource("4_wowpa")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1147650821]
+
+[node name="PauseMenu" type="VBoxContainer" parent="UI" unique_id=969918943 node_paths=PackedStringArray("_default_focus_item")]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -46.5
+offset_right = 39.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_1l0tm")
+script = ExtResource("6_i6g32")
+_default_focus_item = NodePath("Continue")
+
+[node name="Title" type="Label" parent="UI/PauseMenu" unique_id=1930487077]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="UI/PauseMenu" unique_id=1096488242]
+layout_mode = 2
+text = "Continue
+"
+
+[node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=577858283]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="toggle_pause"]
+[connection signal="pressed" from="UI/PauseMenu/Exit" to="." method="_on_exit_pressed"]

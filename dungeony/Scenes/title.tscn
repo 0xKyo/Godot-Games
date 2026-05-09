@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bfhh2q5dmfqk"]
+
+[ext_resource type="Script" uid="uid://cd40q4iwuor60" path="res://Scripts/title_manager.gd" id="1_ekrfg"]
+[ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/menu.gd" id="2_fp2oq"]
+[ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="2_q2qps"]
+
+[node name="Title" type="Control" unique_id=1195531318]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekrfg")
+
+[node name="Background" type="TextureRect" parent="." unique_id=765948767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=230882654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Title" type="Label" parent="MarginContainer" unique_id=2081082177]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("2_q2qps")
+text = "Dungeony"
+
+[node name="MenuButtons" type="VBoxContainer" parent="MarginContainer" unique_id=774623152 node_paths=PackedStringArray("_default_focus_item")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_q2qps")
+theme_override_constants/separation = 6
+script = ExtResource("2_fp2oq")
+_default_focus_item = NodePath("New Game")
+
+[node name="New Game" type="Button" parent="MarginContainer/MenuButtons" unique_id=498497151]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="Button" parent="MarginContainer/MenuButtons" unique_id=105289005]
+layout_mode = 2
+text = "Continue"
+
+[node name="Settings" type="Button" parent="MarginContainer/MenuButtons" unique_id=995497251]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MarginContainer/MenuButtons" unique_id=910889388]
+layout_mode = 2
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MarginContainer/MenuButtons" unique_id=202957626]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/MenuButtons/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]

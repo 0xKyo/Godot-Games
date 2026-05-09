@@ -2,11 +2,19 @@ extends Node
 
 @export var _character: CharacterBody3D
 @export var _spring_arm: SpringArm3D
+@onready var _gm: Node3D = $".."
 
 var _input_direction : Vector2
 var _move_direction: Vector3 
 
 func _input(event: InputEvent):
+	if event.is_action_pressed("pause"):
+		_gm.toggle_pause()
+	
+	# Don't really like this, but check for pause
+	if get_tree().paused:
+		return	
+		
 	if event.is_action_pressed("run"):
 		_character.run()
 	elif event.is_action_released("run"):
@@ -15,8 +23,14 @@ func _input(event: InputEvent):
 		_character.start_jump()
 	elif event.is_action_released("jump"):
 		_character.complete_jump()
+	
+		
 
 func _process(_delta: float) -> void:
+	# Don't really like this, but check for pause
+	if get_tree().paused:
+		return	
+	
 	_spring_arm.look(Input.get_vector("look_left", "look_right", "look_up", "look_down"))
 	_input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 

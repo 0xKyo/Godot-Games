@@ -1,0 +1,45 @@
+[gd_resource type="Theme" format=3 uid="uid://carq6g1westgd"]
+
+[ext_resource type="Texture2D" uid="uid://w0u58c3lt3ir" path="res://Assets/UI/ButtonsText/ButtonText_Small_Square.png" id="1_gm21a"]
+[ext_resource type="Texture2D" uid="uid://b5lbusdcwollm" path="res://Assets/UI/ButtonsText/ButtonText_Small_Blue_Square.png" id="2_hb7d0"]
+[ext_resource type="FontFile" uid="uid://cyqr2yw7cbnxk" path="res://Assets/Fonts/westernic.otf" id="3_8bvxt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yosvi"]
+texture = ExtResource("1_gm21a")
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6aagf"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_gm21a")
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyk5u"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_gm21a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwqts"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = ExtResource("2_hb7d0")
+
+[resource]
+default_font = ExtResource("3_8bvxt")
+default_font_size = 64
+Button/styles/focus = SubResource("StyleBoxTexture_yosvi")
+Button/styles/hover = SubResource("StyleBoxTexture_6aagf")
+Button/styles/normal = SubResource("StyleBoxTexture_kyk5u")
+Button/styles/pressed = SubResource("StyleBoxTexture_cwqts")
