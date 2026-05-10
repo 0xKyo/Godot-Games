@@ -15,6 +15,10 @@ run/main_scene="uid://bfhh2q5dmfqk"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+File="*uid://uv7gbo04qwpl"
+
 [display]
 
 window/size/viewport_width=1280
@@ -98,3 +102,4 @@ pause={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

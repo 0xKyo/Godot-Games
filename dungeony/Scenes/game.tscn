@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://d4nviplosacsp"]
 
-[ext_resource type="Script" uid="uid://cggsf2028bo04" path="res://Scripts/game_manager.gd" id="1_wowpa"]
+[ext_resource type="Script" uid="uid://cggsf2028bo04" path="res://Scripts/Managers/game_manager.gd" id="1_wowpa"]
 [ext_resource type="Script" uid="uid://b8tb6sdblr2nm" path="res://Scripts/player.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bgewfg0wtcpvd" path="res://Scenes/character.tscn" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://Scripts/spring_arm.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dttq2p2brxvjs" path="res://Scenes/dungeon.tscn" id="4_wowpa"]
 [ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="6_1l0tm"]
-[ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/menu.gd" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/UI/menu.gd" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://bme4a18wqaw6t" path="res://Scripts/UI/fade.gd" id="8_v158k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrm1d"]
 
-[node name="Game" type="Node3D" unique_id=376862384]
+[node name="Game" type="Node3D" unique_id=376862384 node_paths=PackedStringArray("_fade")]
+process_mode = 3
 script = ExtResource("1_wowpa")
+_fade = NodePath("UI/Fade")
 
 [node name="Player" type="Node" parent="." unique_id=1240131967 node_paths=PackedStringArray("_character", "_spring_arm")]
 process_mode = 3
@@ -66,6 +69,17 @@ text = "Continue
 [node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=577858283]
 layout_mode = 2
 text = "Exit"
+
+[node name="Fade" type="ColorRect" parent="UI" unique_id=1595401065]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("8_v158k")
 
 [connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="toggle_pause"]
 [connection signal="pressed" from="UI/PauseMenu/Exit" to="." method="_on_exit_pressed"]

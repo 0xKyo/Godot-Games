@@ -23,8 +23,6 @@ func _input(event: InputEvent):
 		_character.start_jump()
 	elif event.is_action_released("jump"):
 		_character.complete_jump()
-	
-		
 
 func _process(_delta: float) -> void:
 	# Don't really like this, but check for pause

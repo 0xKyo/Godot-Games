@@ -26,9 +26,6 @@ var _max_jump_velocity: float
 var _min_jump_velocity: float
 var _gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
-
-
 var _angle_difference : float = 0
 var _xz_velocity: Vector3
 var _direction : Vector3
