@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bqyrwfpotuvdj"
+path="res://.godot/imported/Dark Forest.ogg-ec7813cb99771c3b726ebfa13c0f5db7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Characters/Dark Forest.ogg"
+dest_files=["res://.godot/imported/Dark Forest.ogg-ec7813cb99771c3b726ebfa13c0f5db7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/UI/menu.gd" id="2_fp2oq"]
 [ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="2_q2qps"]
 [ext_resource type="Script" uid="uid://bme4a18wqaw6t" path="res://Scripts/UI/fade.gd" id="4_q2qps"]
+[ext_resource type="PackedScene" uid="uid://dpi34n4guxxgs" path="res://Scenes/settings_menu.tscn" id="5_2qdx2"]
+[ext_resource type="AudioStream" uid="uid://b1cx0e1f3k4uy" path="res://Assets/Music/Dark Forest.ogg" id="5_yosvi"]
 
-[node name="Title" type="Control" unique_id=1195531318 node_paths=PackedStringArray("_fade")]
+[node name="Title" type="Control" unique_id=1195531318 node_paths=PackedStringArray("_fade", "_settings_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +15,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekrfg")
+_background_music = ExtResource("5_yosvi")
 _fade = NodePath("Fade")
+_settings_menu = NodePath("MarginContainer/Settings Menu")
 
 [node name="Background" type="TextureRect" parent="." unique_id=765948767]
 layout_mode = 1
@@ -28,6 +32,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -13.0
+offset_right = 4.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
@@ -70,6 +78,10 @@ text = "Credits"
 [node name="Exit" type="Button" parent="MarginContainer/MenuButtons" unique_id=202957626]
 layout_mode = 2
 text = "Exit"
+
+[node name="Settings Menu" parent="MarginContainer" unique_id=1849455653 instance=ExtResource("5_2qdx2")]
+visible = false
+layout_mode = 2
 
 [node name="Fade" type="ColorRect" parent="." unique_id=1419540118]
 visible = false

@@ -3,18 +3,22 @@
 [ext_resource type="Script" uid="uid://cggsf2028bo04" path="res://Scripts/Managers/game_manager.gd" id="1_wowpa"]
 [ext_resource type="Script" uid="uid://b8tb6sdblr2nm" path="res://Scripts/player.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bgewfg0wtcpvd" path="res://Scenes/character.tscn" id="2_3dryh"]
+[ext_resource type="AudioStream" uid="uid://xwgk56882rmi" path="res://Assets/Music/Lord Neculai the Lonely Vampire.ogg" id="2_h4fw4"]
 [ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://Scripts/spring_arm.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dttq2p2brxvjs" path="res://Scenes/dungeon.tscn" id="4_wowpa"]
 [ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="6_1l0tm"]
 [ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/UI/menu.gd" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://bme4a18wqaw6t" path="res://Scripts/UI/fade.gd" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://dpi34n4guxxgs" path="res://Scenes/settings_menu.tscn" id="9_ldgsr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrm1d"]
 
-[node name="Game" type="Node3D" unique_id=376862384 node_paths=PackedStringArray("_fade")]
+[node name="Game" type="Node3D" unique_id=376862384 node_paths=PackedStringArray("_fade", "_settings_menu")]
 process_mode = 3
 script = ExtResource("1_wowpa")
+_background_music = ExtResource("2_h4fw4")
 _fade = NodePath("UI/Fade")
+_settings_menu = NodePath("UI/Settings Menu")
 
 [node name="Player" type="Node" parent="." unique_id=1240131967 node_paths=PackedStringArray("_character", "_spring_arm")]
 process_mode = 3
@@ -66,9 +70,28 @@ layout_mode = 2
 text = "Continue
 "
 
+[node name="Settings" type="Button" parent="UI/PauseMenu" unique_id=786570231]
+layout_mode = 2
+text = "Settings
+"
+
 [node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=577858283]
 layout_mode = 2
 text = "Exit"
+
+[node name="Settings Menu" parent="UI" unique_id=1849455653 instance=ExtResource("9_ldgsr")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -208.0
+offset_right = 282.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Fade" type="ColorRect" parent="UI" unique_id=1595401065]
 visible = false
@@ -82,4 +105,5 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("8_v158k")
 
 [connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="toggle_pause"]
+[connection signal="pressed" from="UI/PauseMenu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/Exit" to="." method="_on_exit_pressed"]
