@@ -8,10 +8,10 @@ func _ready():
 	visible = true
 	
 func to_clear(duration : float = _duration) -> Signal:
-	return _to_color(CLEAR, _duration)
+	return _to_color(CLEAR, duration)
 
 func to_black(duration : float = _duration) -> Signal:
-	return _to_color(Color.BLACK, _duration)
+	return _to_color(Color.BLACK, duration)
 
 func _to_color(new_color : Color, duration : float) ->Signal:
 	if _tween && _tween.is_running():

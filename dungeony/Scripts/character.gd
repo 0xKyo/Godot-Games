@@ -37,6 +37,9 @@ func _ready():
 	
 	_rotation_speed = deg_to_rad(_rotation_speed)
 
+func face_direction(forward_direction: float):
+	_rig.rotation.y = forward_direction
+	
 func move(direction: Vector3):
 	_direction = direction
 

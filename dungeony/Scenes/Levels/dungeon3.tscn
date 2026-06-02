@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://5vm7egt4r8gv"]
+
+[ext_resource type="Script" uid="uid://cplk2e3mqtduu" path="res://Scenes/level.gd" id="1_cuj2e"]
+[ext_resource type="MeshLibrary" uid="uid://8gv7aqpfg7cg" path="res://Scenes/dungeon_mesh_library.meshlib" id="1_eb8co"]
+[ext_resource type="PackedScene" uid="uid://dyhp2rmfwjscg" path="res://Scenes/transition.tscn" id="2_0yama"]
+
+[sub_resource type="Environment" id="Environment_y52k7"]
+ambient_light_source = 3
+ambient_light_color = Color(0.6052666, 0.7248896, 0.8610494, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dakn4"]
+
+[sub_resource type="Compositor" id="Compositor_lt7kh"]
+
+[node name="Dungeon" type="Node3D" unique_id=269454798]
+script = ExtResource("1_cuj2e")
+_number = 3
+
+[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=2037633581]
+transform = Transform3D(1, 0, 0, 0, 0.4182634, 0.9083258, 0, -0.9083258, 0.4182634, 0, 11.100973, -0.17373586)
+light_volumetric_fog_energy = 1.075
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="." unique_id=750746175]
+mesh_library = ExtResource("1_eb8co")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65529, 2, 103, 65531, 10, 1048755, 65529, 6, 1048679, 65525, 6, 1048679, 65521, 6, 1048679, 65525, 2, 1048679, 65521, 2, 1048679, 65521, 65534, 1048679, 65531, 65534, 1441971, 65531, 4, 1441971, 65529, 65532, 655539, 65521, 65532, 655539, 65519, 65534, 1048755, 65519, 2, 1048755, 65519, 6, 1048755, 65527, 8, 179, 65523, 8, 179, 65519, 8, 655545, 65519, 65532, 1048761, 65531, 8, 1441997, 65521, 1, 655518, 65529, 65534, 1048680, 65525, 65534, 1048679, 65525, 65532, 191, 65531, 1, 1441971, 65525, 65530, 1441895)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2086174258]
+environment = SubResource("Environment_y52k7")
+camera_attributes = SubResource("CameraAttributesPractical_dakn4")
+compositor = SubResource("Compositor_lt7kh")
+
+[node name="Transitions" type="Node" parent="." unique_id=387027077]
+
+[node name="ToDungeon2" parent="Transitions" unique_id=1943085547 instance=ExtResource("2_0yama")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.847, 0, -5.6333857)
+_connects_to = "dungeon2"
+_transition_id = 1

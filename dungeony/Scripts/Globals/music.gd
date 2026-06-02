@@ -20,16 +20,16 @@ func _set_linear_volume(linear_volume: float):
 func play_track(track: AudioStream, duration: float = _duration):
 	if playing:
 		if stream == track:
-			return _fade_volume(File.settings.volume, _duration)
+			return _fade_volume(File.settings.volume, duration)
 		# Fade out the otther track before we switch
 		await _fade_volume(0, _duration)
 
 	# Start playing the new tack
 	stream = track
 	play()
-	return _fade_volume(File.settings.volume, _duration)
+	return _fade_volume(File.settings.volume, duration)
 
 func fade_out(duration: float = _duration):
-	await _fade_volume(0, _duration)
+	await _fade_volume(0, duration)
 	stop()
 	stream = null

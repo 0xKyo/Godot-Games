@@ -93,6 +93,11 @@ pause={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Terrain"
+3d_physics/layer_9="Player"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

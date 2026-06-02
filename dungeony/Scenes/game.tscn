@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bgewfg0wtcpvd" path="res://Scenes/character.tscn" id="2_3dryh"]
 [ext_resource type="AudioStream" uid="uid://xwgk56882rmi" path="res://Assets/Music/Lord Neculai the Lonely Vampire.ogg" id="2_h4fw4"]
 [ext_resource type="Script" uid="uid://dnash5sn5dao2" path="res://Scripts/spring_arm.gd" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://dttq2p2brxvjs" path="res://Scenes/dungeon.tscn" id="4_wowpa"]
 [ext_resource type="Theme" uid="uid://carq6g1westgd" path="res://Resources/menu_buttons.tres" id="6_1l0tm"]
 [ext_resource type="Script" uid="uid://cv0567pai1w4l" path="res://Scripts/UI/menu.gd" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://bme4a18wqaw6t" path="res://Scripts/UI/fade.gd" id="8_v158k"]
@@ -27,6 +26,7 @@ _character = NodePath("../Barbarian")
 _spring_arm = NodePath("../Barbarian/SpringArm")
 
 [node name="Barbarian" parent="." unique_id=1764155687 instance=ExtResource("2_3dryh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3682375, 0, 0)
 
 [node name="SpringArm" type="SpringArm3D" parent="Barbarian" unique_id=348415498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -37,8 +37,6 @@ script = ExtResource("4_3dryh")
 [node name="Camera" type="Camera3D" parent="Barbarian/SpringArm" unique_id=647304567]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 h_offset = 0.5
-
-[node name="Dungeon" parent="." unique_id=269454798 instance=ExtResource("4_wowpa")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1147650821]
 

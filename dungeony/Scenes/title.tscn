@@ -65,6 +65,7 @@ text = "New Game"
 
 [node name="Continue" type="Button" parent="MarginContainer/MenuButtons" unique_id=105289005]
 layout_mode = 2
+disabled = true
 text = "Continue"
 
 [node name="Settings" type="Button" parent="MarginContainer/MenuButtons" unique_id=995497251]

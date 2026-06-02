@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dyhp2rmfwjscg"]
+
+[ext_resource type="Script" uid="uid://chbnk1rcomnp3" path="res://Scripts/transition.gd" id="1_jnsx0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl0ik"]
+size = Vector3(4, 4, 4)
+
+[node name="Transition" type="Area3D" unique_id=1943085547]
+collision_layer = 0
+collision_mask = 256
+monitoring = false
+monitorable = false
+script = ExtResource("1_jnsx0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984091170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_bl0ik")
+
+[node name="Entrance" type="Marker3D" parent="." unique_id=1311710129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
